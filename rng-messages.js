@@ -31,16 +31,21 @@ const randomMessages = {
     ' is the latest fashion trend'
 ], 
     msgMiddle : [
-    [' and', ' do not mix'],
+    [' and ', ' do not mix'],
     [' and ', '? does not seem like a fight'],
     ' is the reason we cannot have',
-    [' tastes awful to me, luckily use', 'as a substitute'],
-    ' fear',
+    [' tastes awful to me, luckily I use ', ' as a substitute'],
+    [' goes well in a ', ' recipe'],
+    [' may pass, but I will always cherish '],
+    [' is my second favourite food, after, '],
+    ' is alright, but I prefer ',
+    ' fear ',
     ' reminds me of',
-    ' is almost as bad as',
-    ' look like an uglier',
-    ' look like a prettier'
-
+    ' is almost as bad as ',
+    ' look like an uglier ',
+    ' look like a prettier ',
+    ' might as well be ', 
+    ' is the only thing that stands between me and ',
 ], 
     contextAdjectives : [ 
     ' massive ',
@@ -84,7 +89,35 @@ const randomMessages = {
     ' galvanized ',
     ' dairy-free ',
     ' bio-degradable ',
-    ' sinister '
+    ' sinister ',
+    ' impeccable ',
+    ' exploding ',
+    ' dancing ',
+    ' incessant ',
+    ' mute ',
+    ' toxic ',
+    ' 50ft ',
+    ' marooned ',
+    ' exploding ',
+    ' the endless torment of ',
+    ' nuclear ',
+    ' omnipotent ',
+    ' creative ',
+    ' radioactive ',
+    ' precious ',
+    ' mildly-annoying ',
+    ' pervasive ',
+    ' sophisticated ',
+    ' insipid ',
+    ' boring ',
+    ' shiny ',
+    ' gold-plated ',
+    ' invisible ',
+    ' life-threatening ',
+    ' supreme ',
+    ' upside down ',
+    ' supersonic ',
+    ' frozen '
 ], 
     contextNouns : [
     'dolphins',
@@ -99,7 +132,7 @@ const randomMessages = {
     'ice cream',
     'saxophones',
     'fireballs',
-    'salad',
+    'salad dressing',
     'onions',
     'men',
     'women',
@@ -129,42 +162,102 @@ const randomMessages = {
     'snowflakes',
     'eating',
     'money',
-    'soup'
+    'soup',
+    'alcohol',
+    'neighbours',
+    'firearms',
+    'rain',
+    'partying',
+    'bubbles',
+    'lava',
+    'pirates',
+    'time-travellers',
+    'people',
+    'gingerbread',
+    'the cookie monster',
+    'bagels',
+    'tornadoes',
+    'tuna',
+    'cheese',
+    'boomerangs',
+    'existence',
+    'life',
+    'ghosts',
+    'robots',
+    'mascots',
+    'bees',
+    'toothache',
+    'sumo wrestlers',
+    'bones',
+    'icicles',
+    'gnomes',
+    'butterflies',
+    'donuts',
+    'experiments',
+    'mountains',
+    'cardboard'
 ]};
 
-function getRandomMessages(objOfArrMessages) {
-    let randMsgArr = [];
-    let msgStart, msgEnd, msgMiddle, contextAdjective, contextNoun;
-    
-    for(let arr in objOfArrMessages.msgStart) {
-        msgStart = objOfArrMessages[arr][Math.floor(Math.random() * arr.length)];
-        console.log(msgStart);
-    }
-    for(let arr in objOfArrMessages.msgEnd) {
-        msgEnd = objOfArrMessages[arr][Math.floor(Math.random() * arr.length)];
-    }
-    for(let arr in objOfArrMessages.msgMiddle) {
-        msgMiddle = objOfArrMessages[arr][Math.floor(Math.random() * arr.length)];
-    }
-    for(let arr in objOfArrMessages.contextAdjectives) {
-        contextAdjective = objOfArrMessages[arr][Math.floor(Math.random() * arr.length)];
-    }
-    for(let arr in objOfArrMessages.contextNouns) {
-        contextNoun = objOfArrMessages[arr][Math.floor(Math.random() * arr.length)];
-    }
-    randMsgArr.push(msgStart, msgEnd, msgMiddle, contextAdjective, contextNoun);
-    return randMsgArr;
+function getRandomMessagesEvent(event) {
+    let selectedMessages = {};
+    let rngMsgs = randomMessages;
+    selectedMessages.msgStart = rngMsgs.msgStart[Math.floor(Math.random() * rngMsgs.msgStart.length)];
+    selectedMessages.msgEnd = rngMsgs.msgEnd[Math.floor(Math.random() * rngMsgs.msgEnd.length)];
+    selectedMessages.msgMiddle = rngMsgs.msgMiddle[Math.floor(Math.random() * rngMsgs.msgMiddle.length)];
+    selectedMessages.contextAdjective = rngMsgs.contextAdjectives[Math.floor(Math.random() * rngMsgs.contextAdjectives.length)];
+    selectedMessages.contextNoun = rngMsgs.contextNouns[Math.floor(Math.random() * rngMsgs.contextNouns.length)];
+    selectedMessages.contextNoun2 = rngMsgs.contextNouns[Math.floor(Math.random() * rngMsgs.contextNouns.length)];
+
+    document.getElementById('rng-message').childNodes[0].nodeValue = composeMessage(selectedMessages);
+    // .textContent is an element property that overwrites all markup within the tags, does not parse html, and returns all text within the element, this includes any children's text
+    // .innerText behaves very similar to textContent, except it ignores <script> and <style> elements
+    // .outerText behaves very similar to textContent, except it ignores <script> and <style> elements and removes the tags of the element it is affecting
+    // .innerHTML is an element property that overwrites all markup within the tags, parse html, and returns all html markup within element, this includes its children's markup
+    // .outerHTML is an element property that overwrites all markup within the tags, including the element's tags, parses html, and returns all html markup within element, including its own tags, this includes its children's markup
+    // nodeValue is a node property, for elements nodeValue is null, nodeValue
 }
 
-function composeMessage(randomMessages)
+function composeMessage(selectedMessages)
 {
-    let randMsg;
-    // const msgType = Math.floor(Math.random() * 3);
+    let msg = '';
+    const msgType = Math.floor(Math.random() * 3);
+        console.log(msgType);
+    switch(msgType)
+    {
 
-    for(let msg in randomMessages)
-    randMsg += msg;
+        case 0:
+            msg += selectedMessages.msgStart;
+            msg += selectedMessages.contextAdjective;
+            msg += selectedMessages.contextNoun;
+            console.log(msg, ' case 1');
+            break;
+        case 1:
+            msg += selectedMessages.contextAdjective;
+            msg += selectedMessages.contextNoun;         
+            msg += selectedMessages.msgEnd;
+            console.log(msg, ' case 2');
+            break;           
+        case 2:
+            if(typeof(selectedMessages.msgMiddle) === 'string')
+            {
+                msg += selectedMessages.contextNoun;
+                msg += selectedMessages.msgMiddle;
+                msg += selectedMessages.contextNoun2;
+                console.log(msg, ' case 2, 1');
+            }
+            else
+            {
+                msg += selectedMessages.contextNoun;
+                msg += selectedMessages.msgMiddle[0];
+                msg += selectedMessages.contextNoun2;
+                msg += selectedMessages.msgMiddle[1];
+                console.log(msg, ' case 2, 2');
+                console.dir(selectedMessages);
+            }
+    }
 
-    console.log(randMsg);
+    return msg;
 }
 
-composeMessage(getRandomMessages(randomMessages));
+const button = document.getElementsByName('rng-button');
+button[0].addEventListener('click', getRandomMessagesEvent);
