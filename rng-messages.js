@@ -38,7 +38,7 @@ const randomMessages = {
     [' goes well in a ', ' recipe'],
     [' is the past, but ', ' is the future'],
     ' is a delicacy amongst ',
-    ' is the reason we cannot have',
+    ' is the reason we cannot have ',
     ' may pass, but I will always cherish ',
     ' is my second favourite food, after, ',
     ' is alright, but I prefer ',
@@ -301,5 +301,14 @@ function composeMessage(selectedMessages)
     return msg;
 }
 
+
+$(document).ready(function(){
+    let msgElement =  $('#rng-message');
+    $('button[name*="rng-button"]').click(function(){
+        msgElement.slideToggle('fast', getRandomMessagesEvent); // callback function to change message when first animation completes
+        msgElement.slideToggle('fast');
+    });   
+});
+
+
 const button = document.getElementsByName('rng-button');
-button[0].addEventListener('click', getRandomMessagesEvent);
