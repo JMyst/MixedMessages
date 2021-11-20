@@ -2,7 +2,7 @@ const randomMessages = {
     msgStart : [ 
     'The answer to the meaning of life, and the very fabric of the universe is',
     'The only thing you need to live a fulfilled life is',
-    'I am a',
+    'We are all',
     'In 50 years, we will have',
     'Hooray for',
     'A',
@@ -13,7 +13,8 @@ const randomMessages = {
     'I fear',
     'Life would be incomplete without',
     'I live for the moments I get to see',
-    'My favourite food is'
+    'My favourite food is',
+    'Predicted to be extinct in the next 5 years: '
 ], 
     msgEnd : [
     ' is enough to give anyone nightmares',
@@ -50,6 +51,8 @@ const randomMessages = {
     ' might as well be ', 
     ' is the only thing that stands between me and ',
     ' is a known cure for ',
+    ' could be so much better with ',
+    ' is alright, as long as you can put up with the ',
 ], 
     contextAdjectives : [ 
     ' massive ',
@@ -145,7 +148,7 @@ const randomMessages = {
     ' oven-baked ',
     ' poached ',
     ' vintage ',
-    ' endless '
+    ' endless ',
 ], 
     contextNouns : [
     'dolphins',
@@ -165,7 +168,7 @@ const randomMessages = {
     'men',
     'women',
     'giraffes',
-    'because',
+    'aliens',
     'worms',
     'unicorns',
     'battleships',
@@ -237,7 +240,14 @@ const randomMessages = {
     'memories',
     'badgers',
     'mushrooms',
-    'cars'
+    'cars',
+    'marmite',
+    'fish',
+    'marmalade',
+    'animals',
+    'holidays',
+    'nightmares',
+    'dreams'
 ]};
 
 function getRandomMessagesEvent(event) {

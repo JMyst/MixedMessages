@@ -8,6 +8,15 @@ body {
     background-color: #fffef4;
 }
 
+h1 {
+    width: 50%;
+    font-size: 400%;
+    font-style: italic;
+    color:rgb(95, 84, 69);
+    margin: 50px auto;
+    text-align: center;
+}
+
 #container {
     margin: 0 auto;
     text-align: center;
@@ -19,11 +28,15 @@ button {
     font-size: x-large;
     width: 100%;
     border: none;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: bold;
     background-color: rgb(161, 142, 117);
     color:rgb(255, 247, 238);
     border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+button, #rng-message, h1 {
+    font-family: 'Courgette';
 }
 
 button:hover {
@@ -32,17 +45,18 @@ button:hover {
 }
 
 hr {
-    height: 5px;
+    height: 15px;
     color: rgb(161, 142, 117);
     background-color: rgb(161, 142, 117);
     border: none;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 #rng-message {
-    font-family: 'Courgette';
     font-style: italic;
     font-size: 240%;
+    background-image: url(images/parchment-background.jpg);
+    background-attachment: fixed;
     background-color: rgb(250, 245, 239);
-    padding: 15px;
+    padding: 100px 25px;
 }
