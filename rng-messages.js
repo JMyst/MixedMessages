@@ -261,12 +261,6 @@ function getRandomMessagesEvent(event) {
     selectedMessages.contextNoun2 = rngMsgs.contextNouns[Math.floor(Math.random() * rngMsgs.contextNouns.length)];
 
     document.getElementById('rng-message').childNodes[0].nodeValue = composeMessage(selectedMessages);
-    // .textContent is an element property that overwrites all markup within the tags, does not parse html, and returns all text within the element, this includes any children's text
-    // .innerText behaves very similar to textContent, except it ignores <script> and <style> elements
-    // .outerText behaves very similar to textContent, except it ignores <script> and <style> elements and removes the tags of the element it is affecting
-    // .innerHTML is an element property that overwrites all markup within the tags, parse html, and returns all html markup within element, this includes its children's markup
-    // .outerHTML is an element property that overwrites all markup within the tags, including the element's tags, parses html, and returns all html markup within element, including its own tags, this includes its children's markup
-    // nodeValue is a node property, for elements nodeValue is null, nodeValue
 }
 
 function composeMessage(selectedMessages)
